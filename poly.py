@@ -179,7 +179,42 @@ class LinkedList:
         """
         Multiplies two polynomials together
         """
+        res = LinkedList()
+        dummy_res = res.dummy
+        cur1 = self.dummy.next
 
+        
+        while cur1 is not None:
+            cur2 = p.dummy.next
+            while cur2 is not None:
+                new_coeff = cur1.coeff * cur2.coeff
+                new_exp = cur1.exp + cur2.exp
+
+                prev = dummy_res
+                cur = dummy_res.next
+                while cur is not None:
+                    if cur.exp == new_exp:
+                        cur.coeff += new_coeff
+                        if cur.coeff == 0:
+                            prev.next = cur.next
+                        return dummy_res.next
+
+
+                    if cur.exp < new_exp:
+                        break
+                    prev = cur
+                    cur = cur.next
+
+                new_node = Node(new_coeff, new_exp)
+                prev.next = new_node
+                new_node.next = cur
+
+                cur2 = cur2.next
+
+
+            cur1 = cur1.next
+
+        return res
 
     # Return a string representation of the polynomial.
     def __str__(self):
@@ -213,8 +248,13 @@ def main():
 
     # get sum of p and q as a new linked list and print sum
 
+
+    # print(p.add(q))
+
+
     # get product of p and q as a new linked list and print product
 
+    # print(p.mult(q))
 
 if __name__ == "__main__":
     main()
