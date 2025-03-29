@@ -183,7 +183,7 @@ class LinkedList:
         dummy_res = res.dummy
         cur1 = self.dummy.next
 
-        
+
         while cur1 is not None:
             cur2 = p.dummy.next
             while cur2 is not None:
@@ -243,18 +243,27 @@ def main():
     Main method to run functional tests
     """
     # read data from stdin (terminal/file) using input() and create polynomial p
+    num_terms = int(input())
+    p = LinkedList()
+    for _ in range(num_terms):
+        coeff, exp = input().split(" ")
+        p.insert_term(int(coeff), int(exp))
 
     # read data from stdin (terminal/file) using input() and create polynomial q
-
+    num_terms = int(input())
+    q = LinkedList()
+    for _ in range(num_terms):
+        coeff, exp = input().split(" ")
+        q.insert_term(int(coeff), int(exp))
     # get sum of p and q as a new linked list and print sum
 
 
-    # print(p.add(q))
+    print(p.add(q))
 
 
     # get product of p and q as a new linked list and print product
 
-    # print(p.mult(q))
+    print(p.mult(q))
 
 if __name__ == "__main__":
     main()
