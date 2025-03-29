@@ -139,7 +139,9 @@ class LinkedList:
         """
         Adds two polynomials together
         """
-        dummy_res = Node(None,None)
+        res = LinkedList()
+        dummy_res = res.dummy
+
         res_cur = dummy_res
         cur1 = self.dummy.next
         cur2 = p.dummy.next
@@ -170,7 +172,7 @@ class LinkedList:
             res_cur = res_cur.next
             cur2 = cur2.next
 
-        return dummy_res.next
+        return res
 
     # Multiply a polynomial p with the polynomial and return the product as a new linked list.
     def mult(self, p):
