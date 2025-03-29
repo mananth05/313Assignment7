@@ -250,6 +250,7 @@ def main():
         p.insert_term(int(coeff), int(exp))
 
     # read data from stdin (terminal/file) using input() and create polynomial q
+    input() # extra line
     num_terms = int(input())
     q = LinkedList()
     for _ in range(num_terms):
